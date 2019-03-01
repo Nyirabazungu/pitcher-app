@@ -1,0 +1,17 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html'%}
+
+{% block content %}
+    <div class="container">
+
+        <div class="col-md-8">
+<div class="col-md-4">
+        {{ wtf.quick_form(pitch_form) }}
+        {{simplemde.load}}
+    </div>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
+            <h2> <a href="/pitch/new/>">{{pitch.pitches_description}}</a> </h2>
+          </div>
+    <div>
+ {% endblock %}
