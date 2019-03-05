@@ -1,4 +1,4 @@
-{% macro displayPitches(pitch_list) %}
+{% macro Pitch(pitch_list) %}
 
     {% for pitch in pitch_list %}
 
@@ -9,7 +9,7 @@
         <p>{{pitch.username}}</p>
       </div>
       <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
-        <h2> <a href="{{url_for('main.single_pitch',id=pitch.id)}}">{{pitch.username}}</a> </h2>
+        <h2> <a href="{{url_for('main.single_pitch',id=pitch.id)}}">{{pitch.user.username}}</a> </h2>
       </div>
     </div>
 
