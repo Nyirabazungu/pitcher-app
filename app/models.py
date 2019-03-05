@@ -39,10 +39,9 @@ class User(UserMixin,db.Model):
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer,primary_key = True)
-    category = db.Column(db .String(255))
     pitches = db.Column(db.String(500))
     posted = db.Column(db.DateTime,default=datetime.utcnow)
-    comments = db.relationship('Comment',backref = 'Pitch',lazy="dynamic")
+    comment = db.relationship('Comment',backref = 'pitch',lazy="dynamic")
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     
     def save_pitches(self):
@@ -60,12 +59,12 @@ class Pitch(db.Model):
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer,primary_key = True)
-    comments_sentences = db.Column(db.String(500))
+    comment = db.Column(db.String(500))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
     def __repr__(self):
-        return f'User {self.comments_sentences}'
-
+        return f'User {self.comment}'
+  
     def save_comments(self):
         db.session.add(self)
         db.session.commit()

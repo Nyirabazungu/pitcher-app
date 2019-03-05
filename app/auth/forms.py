@@ -26,9 +26,11 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember me')
     submit = SubmitField('Sign In')
 
-class PitchFom(FlaskForm):   
-     pitch = TextAreaField('user pitch')
-     submit = SubmitField('Sign In')
+class PitchFom(FlaskForm): 
+
+     
+     pitches = TextAreaField('user pitch')
+     submit = SubmitField('submit')
 
 class CommentFom(FlaskForm):   
      comment= TextAreaField('user pitch')

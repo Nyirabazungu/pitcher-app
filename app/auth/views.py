@@ -1,9 +1,9 @@
-from flask import render_template,redirect,url_for,flash,request
+from flask import render_template,redirect,url_for,flash
 from . import auth
 from .. import db
 from flask_login import login_user
-from ..models import User
-from .forms import LoginForm,RegistrationForm
+from ..models import User,Pitch
+from .forms import LoginForm,RegistrationForm,PitchFom
 from flask_login import login_user,logout_user,login_required
 from ..email import mail_message
 
@@ -15,9 +15,7 @@ def login():
         user = User.query.filter_by(email = login_form.email.data).first()
         if user is not None and user.verify_password(login_form.password.data):
             login_user(user,login_form.remember.data)
-            return redirect(request.args.get('next') or url_for('main.index'))
-
-        flask('Invalid username or Password')
+        flash('Invalid username or Password')
 
   
     return render_template('auth/login.html',login_form = login_form)
@@ -35,6 +33,9 @@ def register():
         return redirect(url_for('auth.login'))
         title = "New Account"
     return render_template('auth/register.html',registration_form = form)
+
+
+
 
 
 @auth.route('/logout')
