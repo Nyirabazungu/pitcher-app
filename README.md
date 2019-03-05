@@ -1,5 +1,5 @@
 # Author's Name
-     Nyirabazungu VAlentine
+     Nyirabazungu Valentine
 
 ## project or program name
     Pitcher-app
