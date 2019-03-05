@@ -11,7 +11,7 @@
 ##  set up requirements
         1.  A running network connection to the internet.
         2.  A web browser.
-        3.  This link :https://github.com/Nyirabazungu/pitch-app
+        3.  This link :https://github.com/Nyirabazungu/pitcher-app
 
 
 ### Deployment
