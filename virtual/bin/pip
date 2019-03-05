@@ -1,4 +1,4 @@
-#!/home/wecode/pitch-app/virtual/bin/python
+#!/home/wecode/pitcher-app/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
