@@ -27,8 +27,12 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 class PitchFom(FlaskForm):   
-     category = StringField('Enter category for pitch',validators = [Required()])
-     description = TextAreaField('user pitch')
-     submit = SubmitField('Sign In')
+    category = StringField('Enter category for pitch',validators = [Required()])
+    pitch= TextAreaField('user pitch')
+    submit = SubmitField('Sign In')
     
+
+class CommentFom(FlaskForm):   
+    comment= TextAreaField('user comment')
+    submit = SubmitField('Sign In')   
            
