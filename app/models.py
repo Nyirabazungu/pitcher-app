@@ -19,18 +19,6 @@ class User(UserMixin,db.Model):
     pass_secure = db.Column(db.String(255))
     pitches = db.relationship('Pitch',backref = 'user',lazy="dynamic")
     comments = db.relationship('Comment',backref = 'user',lazy="dynamic")
-    # Flask-Login integration
-    # def is_authenticated(self):
-    #    return True
-
-    # def is_active(self):
-    #    return True
-
-    # def is_anonymous(self):
-    #    return False
-
-    # def get_id(self):
-    #    return self.id
 
    
     @property
@@ -52,21 +40,22 @@ class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer,primary_key = True)
     category = db.Column(db .String(255))
-    pitches_description = db.Column(db.String(500))
+    pitches = db.Column(db.String(500))
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     comments = db.relationship('Comment',backref = 'Pitch',lazy="dynamic")
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    def save_pitch(self):
+    
+    def save_pitches(self):
         db.session.add(self)
         db.session.commit()
 
     @classmethod
     def get_pitches(cls,id):
-        pitches = Pitch.query.filter_by(user_id=id).all()
+        pitches = Pitch.query.all()
         return pitches   
 
     def __repr__(self):
-        return f'User {self.pitches_description}'
+        return f'User {self.pitches}'
 
 class Comment(db.Model):
     __tablename__ = 'comments'
@@ -76,4 +65,8 @@ class Comment(db.Model):
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
     def __repr__(self):
         return f'User {self.comments_sentences}'
+
+    def save_comments(self):
+        db.session.add(self)
+        db.session.commit()
 
