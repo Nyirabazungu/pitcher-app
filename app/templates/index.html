@@ -18,20 +18,21 @@
   {%block content%}
   <center><h2 style="background-color:grey;">WELCOME TO PITCHES APPLICATION</h2></center>
    
+ 
+      <blockquote class="text-center text-lg">
  <div class="container">
-   <p>Already signed in? Write your pitch <a href="{{url_for('main.new_pitch')}}"><button>here</button></a></p>
+   <p>Already signed in? Write your pitch <a href="/new"></a><a href="{{url_for('main.new_pitch')}}"><button>here</button></p>
    <hr>
       
     <center>
-      
     {% for pitch in pitches%} 
-   <p>{{pitch.pitches}}</p> 
-   <a href="{{url_for('main.new_comment', id=pitch.id)}}"><button>Comment</button></a>
+   <p>{{pitch.pitch}}</p> 
+   <a href="/new"></a><a href="{{url_for('main.new_comment', id= pitch.id)}}"><button>Comment</button></a>
     <br>
    
      {% endfor %}
-   <br>
  {% endblock%}
+ <br>
 </center>
 </div>
 </body>
