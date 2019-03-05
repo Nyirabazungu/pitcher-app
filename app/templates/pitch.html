@@ -1,21 +1,17 @@
 {% extends 'base.html'%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-    {% block content%}
-    {% for pitch in pitches%}
+{% block content%}
+<div class="container-fluid"> 
 
-    <h3>{{pitch.pitches}}</h3>
-    {%endfor%}
-    {%endblock%}
-  
-</body>
-</html>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>"{{pitch}}"></p>
+    </div>
 
+    <div class="col-sm-8">
+      {{format_pitch|safe}}
+    </div>
+  </div>
+</div> 
+
+{%endblock%}
 
