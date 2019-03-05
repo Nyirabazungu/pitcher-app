@@ -1,20 +1,40 @@
-{%extends 'base.html'%}
-{%import 'macros.html'as macros%}
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
- 
-        <title> {{ title }}</title>
-        <title> Welcome to the pitches</title>
-      
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
-<body>
-    <a href="{{url_for('pitch/new')}}">pitch</a>
-{{macro.Pitch(pitch)}}    
+<body > 
+
+
+    {% block styles %}
+      {{ super() }}
+      <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
+    
+    {% endblock %}
+  {%block content%}
+  <center><h2 style="background-color:grey;">WELCOME TO PITCHES APPLICATION</h2></center>
+   
+ <div class="container">
+   <p>Already signed in? Write your pitch <a href="{{url_for('main.new_pitch')}}"><button>here</button></a></p>
+   <hr>
+      
+    <center>
+      
+    {% for pitch in pitches%} 
+   <p>{{pitch.pitches}}</p> 
+   <a href="{{url_for('main.new_comment', id=pitch.id)}}"><button>Comment</button></a>
+    <br>
+   
+     {% endfor %}
+   <br>
+ {% endblock%}
+</center>
+</div>
 </body>
 </html>
+
+
