@@ -6,7 +6,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:valentine@localhost/pitch'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     #  email configurations
-    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_SERVER ='smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
@@ -14,6 +14,7 @@ class Config:
     # simple mde  configurations
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
+    SENDER_EMAIL="vnyanki6@gmail.com"
 
 
 
@@ -21,9 +22,7 @@ class ProdConfig(Config):
     pass
 
 
-class DevConfig(Config):
-#     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:vnyanki6@localhost/pitch'   
-    
+class DevConfig(Config):    
 
     DEBUG = True
 
