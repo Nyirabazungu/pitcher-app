@@ -2,7 +2,7 @@
      Nyirabazungu VAlentine
 
 ## project or program name
-    Pitch-app
+    Pitcher-app
 
 ### description of project
     this this project is to create an application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
@@ -18,7 +18,7 @@
         Enter the link into the url interface and click the prompt.
 
 ## link to live site on GitHub pages
-        https://github.com/Nyirabazungu/pitch-app
+        https://github.com/Nyirabazungu/pitcher-app
 
 
 ## technologies used
